@@ -6,7 +6,6 @@ import {
   View,
   TextInput,
   Image,
-  FlatList,
   Dimensions,
 } from 'react-native';
 import {Card, CardItem, Button} from 'native-base';
@@ -16,6 +15,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {SearchBar} from 'react-native-elements';
 import MapComp from './MapComp';
+import UserNTools from './UserNTools';
 
 //should store this in useState if data is coming from backend
 const data = [
@@ -200,47 +200,7 @@ const HomeScreen = () => {
             <Text>One more card container</Text>
           </Card>
           <Card style={{flexdirection: 'row', flexGrow: 1}}>
-            <FlatList
-              data={data}
-              renderItem={({item}) => {
-                return (
-                  <View
-                    style={{
-                      borderColor: '#EAECEE',
-                      width: '50%',
-                      borderWidth: 0.5,
-                      borderStyle: 'solid',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}>
-                    <Image
-                      // source={{uri: item.imgSource}}
-                      source={item.imgSource}
-                      style={{width: 40, height: 40, marginHorizontal: 5}}
-                    />
-                    <View
-                      style={{
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'flex-start',
-                        height: 60,
-                      }}>
-                      <Text>{item.userName}</Text>
-                      <Text>{item.tool}</Text>
-                    </View>
-                  </View>
-                );
-              }}
-              horizontal={false}
-              numColumns={2}
-              ListHeaderComponent={() => (
-                <View style={{borderWidth: 0.5, borderColor: '#EAECEE'}} />
-              )}
-              ListFooterComponent={() => (
-                <View style={{borderWidth: 0.5, borderColor: '#EAECEE'}} />
-              )}
-              keyExtractor={item => item.id}
-            />
+            <UserNTools data={data} />
           </Card>
         </View>
         <Card style={{marginBottom: 10, borderRadius: 6, overflow: 'hidden'}}>

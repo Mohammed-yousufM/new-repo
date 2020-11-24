@@ -13,7 +13,7 @@ const MapComp = ({data}) => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-        style={{height: 250, width: '100%'}}>
+        style={{height: 230, width: '100%'}}>
         {data.map((item, index) => {
           return (
             <Marker
